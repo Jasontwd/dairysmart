@@ -8,7 +8,6 @@
 <style>html{color-scheme:light dark}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@87.5,500;87.5,700;100,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: one reading column with a left-hand status rail on wide screens; sections are the build log, media sits full-bleed inside the column. */
@@ -60,7 +59,12 @@ li + li { margin-top: .4em; }
 /* top bar */
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; flex-wrap: wrap; }
-.brand { font-family: var(--display); font-weight: 700; font-stretch: 87.5%; letter-spacing: .02em; }
+.brand { font-family: var(--display); font-weight: 700; font-stretch: 87.5%; letter-spacing: .02em; display: flex; align-items: center; gap: 14px; }
+.brand img { height: 26px; width: auto; }
+.brand .sep { width: 1px; height: 22px; background: var(--line); }
+.hero-logo { height: 44px; width: auto; margin-bottom: 22px; }
+:root[data-theme="dark"] .brand img, :root[data-theme="dark"] .hero-logo { filter: brightness(1.25); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .brand img, :root:not([data-theme="light"]) .hero-logo { filter: brightness(1.25); } }
 .brand span { color: var(--fg-2); font-weight: 500; }
 .top nav { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; }
 .top nav a { color: var(--fg-2); text-decoration: none; }
@@ -150,7 +154,7 @@ html { scroll-behavior: smooth; }
 
 <header class="top">
   <div class="wrap">
-    <div class="brand">JUPITER READER V2 <span>· Formtech × DairySmart</span></div>
+    <div class="brand"><img src="media/dairysmart-logo.png" alt="DairySmart"><span class="sep"></span>JUPITER READER V2 <span>· by Formtech</span></div>
     <nav>
       <a href="#context">Context</a>
       <a href="#changes">What changed</a>
@@ -166,6 +170,7 @@ html { scroll-behavior: smooth; }
 
   <div class="hero">
     <div>
+      <img class="hero-logo" src="media/dairysmart-logo.png" alt="DairySmart">
       <div class="eyebrow">Progress update · 3 November 2026</div>
       <h1>Jupiter Reader <em>V2</em></h1>
       <p class="lede">A tougher, splash-proof, fog-free rebuild of the DairySmart plate reader, now at final test print. Next in the queue: the telescopic RFID wand.</p>
