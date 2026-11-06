@@ -115,6 +115,12 @@ section { padding-block: 44px; border-top: 1px solid var(--line); }
 .compare video { width: 100%; aspect-ratio: 480 / 854; max-height: 700px; object-fit: contain; background: #000; }
 .compare .lab { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; font-size: 14px; }
 .compare .lab strong { font-family: var(--display); font-stretch: 87.5%; }
+.prints { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 16px; align-items: start; }
+.prints > figure { margin: 0; min-width: 0; background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.prints video, .prints img { width: 100%; background: #000; }
+.prints .lab { padding: 10px 14px; font-size: 13px; color: var(--fg-2); }
+.prints .lab strong { display: block; font-family: var(--display); font-stretch: 87.5%; color: var(--fg); font-size: 14px; margin-bottom: 2px; }
+@media (max-width: 760px) { .prints { grid-template-columns: 1fr; } }
 .note { background: var(--bg-2); border-left: 3px solid var(--accent-2); padding: 12px 16px; font-size: 14px; color: var(--fg-2); margin-top: 18px; max-width: 72ch; }
 
 /* spec table */
@@ -159,6 +165,7 @@ html { scroll-behavior: smooth; }
       <a href="#context">Context</a>
       <a href="#changes">What changed</a>
       <a href="#demister">Demister test</a>
+      <a href="#prints">Latest prints</a>
       <a href="#build">Build &amp; materials</a>
       <a href="#wand">RFID wand</a>
       <a href="#status">Status</a>
@@ -178,7 +185,7 @@ html { scroll-behavior: smooth; }
     <div class="status">
       <span class="pill acc">Final test print in progress</span>
       <dl>
-        <dt>Latest</dt><dd>Multi-language lid label printing; clear resin tray on the Form</dd>
+        <dt>Latest</dt><dd>Lid with multi-language label printed, QR scans; clear tray printed</dd>
         <dt>Design</dt><dd>Formtech design team, Christchurch</dd>
         <dt>Files to Formtech</dt><dd>Tonight (3 Nov)</dd>
         <dt>Production candidates</dt><dd>ASA (FDM) and Nylon 12 (SLS)</dd>
@@ -277,6 +284,30 @@ html { scroll-behavior: smooth; }
     <div class="note">With the fan on there is a very faint fog in the first moments that clears over time. Next revision adds a larger intake on the back with an opening flap, and the demister exit is being tuned for the best airflow across the lens.</div>
   </section>
 
+  <section id="prints">
+    <div class="sec-head">
+      <div class="eyebrow">Latest prints · 5 Nov</div>
+      <div>
+        <h2>Lid and clear tray off the printers</h2>
+        <p>First physical parts from the final files. The lid visor came out with the multi-language label legible and the QR code scanning first go. The tray printed in clear and came off the Form clean.</p>
+      </div>
+    </div>
+    <div class="prints">
+      <figure>
+        <video src="media/lid-print.mp4" poster="media/poster-lid.jpg" muted autoplay loop playsinline controls preload="metadata"></video>
+        <div class="lab"><strong>Lid visor, two-colour FDM</strong>DairySmart Jupiter branding on the front, support / guide / restocking label and QR on top. QR scans. A 0.2 mm nozzle will sharpen the small text further and ironing on the top face is still to be dialled in.</div>
+      </figure>
+      <figure>
+        <video src="media/tray-off-printer.mp4" poster="media/poster-tray.jpg" muted autoplay loop playsinline controls preload="metadata"></video>
+        <div class="lab"><strong>Tray straight off the Form</strong>High Temp clear resin on supports, 2 h 32 m. Printed at the orientation shown in PreForm with no adjustment needed.</div>
+      </figure>
+      <figure>
+        <img src="media/tray-clear.jpg" alt="Clear resin tray after post-processing, with the clear plate insert held above its circular recess">
+        <div class="lab"><strong>Tray cleaned and cured</strong>Clear as crystal, with the plate insert dropping into its recess. Clips are on the lower shell, so the tray itself stays rigid.</div>
+      </figure>
+    </div>
+  </section>
+
   <section id="build">
     <div class="sec-head">
       <div class="eyebrow">Build &amp; materials</div>
@@ -297,7 +328,7 @@ html { scroll-behavior: smooth; }
           <tr><th>Route</th><th>Material</th><th>Why</th></tr>
           <tr><td>FDM</td><td class="mono">ASA</td><td>Stiffer than PETG (less frame flex), easy to clean, UV-stable for a shed.</td></tr>
           <tr><td>SLS</td><td class="mono">Nylon 12</td><td>No support marks, strong thin walls. A laser-sintering-specific version of the model is being prepared.</td></tr>
-          <tr><td>SLA</td><td class="mono">High Temp clear resin</td><td>Tray only, so the plate and its RFID tag are visible without flexing the part. First tray is on the Form printer now.</td></tr>
+          <tr><td>SLA</td><td class="mono">High Temp clear resin</td><td>Tray only, so the plate and its RFID tag are visible without flexing the part. First tray printed 5 Nov.</td></tr>
         </table>
         </div>
         <div class="stats">
@@ -313,7 +344,7 @@ html { scroll-behavior: smooth; }
         <figcaption>Tray set up in PreForm, angled on supports. High Temp clear resin, 2 h 32 m print time. It prints well at this orientation, so no need to change the angle.</figcaption>
       </figure>
       <div>
-        <h3 style="font-size:17px;font-weight:700;font-stretch:87.5%;margin-bottom:10px">Resin tray: first print running</h3>
+        <h3 style="font-size:17px;font-weight:700;font-stretch:87.5%;margin-bottom:10px">Resin tray: print setup</h3>
         <p>Because the clips moved to the lower shell, the tray no longer flexes and can be printed on the Form in a clear resin. A 2 h 32 m print makes it cheap to iterate, and a clear tray keeps the plate and its RFID tag visible to the operator.</p>
         <div class="stats">
           <div class="stat"><div class="v num">2 h 32 m</div><div class="k">Tray print time (SLA)</div></div>
@@ -376,8 +407,9 @@ html { scroll-behavior: smooth; }
       <li class="done"><span class="dot"></span><div><b>V2 CAD and first test prints</b><small>New screen mount, fan shroud, tray and clip redesign, RFID holder, splash sealing.</small></div></li>
       <li class="done"><span class="dot"></span><div><b>Demister proven</b><small>Fan on vs off over boiling water, lens stays clear.</small></div></li>
       <li class="done"><span class="dot"></span><div><b>Final test print and file hand-over</b><small>Tray tuned for resin; files handed to Formtech 3 Nov.</small></div></li>
-      <li class="now"><span class="dot"></span><div><b>Lid visor label, two-colour print</b><small>Extra languages added over the QR code, corners radiused; printing blue/white from Orca Slicer (5–6 Nov).</small></div></li>
-      <li class="now"><span class="dot"></span><div><b>Clear resin tray on the Form</b><small>High Temp clear, 2 h 32 m, angled build with supports.</small></div></li>
+      <li class="done"><span class="dot"></span><div><b>Lid visor label, two-colour print</b><small>Extra languages added over the QR code, corners radiused; printed from Orca Slicer, QR scans (5 Nov).</small></div></li>
+      <li class="done"><span class="dot"></span><div><b>Clear resin tray on the Form</b><small>High Temp clear, 2 h 32 m; printed, cleaned and cured, plate insert fits (5 Nov).</small></div></li>
+      <li class="now"><span class="dot"></span><div><b>Finish tuning</b><small>0.2 mm nozzle for the label text, ironing on the lid top face.</small></div></li>
       <li><span class="dot"></span><div><b>Production sets in ASA and Nylon 12</b><small>Formtech prints one set of each and costs per unit.</small></div></li>
       <li><span class="dot"></span><div><b>DairySmart review and sign-off</b><small>Ben to check towards the end of this week.</small></div></li>
       <li><span class="dot"></span><div><b>RFID wand</b><small>Carbon tube sourcing via Killwell, demo print, then handle and electronics.</small></div></li>
