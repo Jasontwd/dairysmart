@@ -115,6 +115,12 @@ section { padding-block: 44px; border-top: 1px solid var(--line); }
 .compare video { width: 100%; aspect-ratio: 480 / 854; max-height: 700px; object-fit: contain; background: #000; }
 .compare .lab { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; font-size: 14px; }
 .compare .lab strong { font-family: var(--display); font-stretch: 87.5%; }
+.wide { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.wide > figure { margin: 0; min-width: 0; background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.wide video { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+.wide .lab { padding: 10px 14px; font-size: 13px; color: var(--fg-2); }
+.wide .lab strong { display: block; font-family: var(--display); font-stretch: 87.5%; color: var(--fg); font-size: 14px; margin-bottom: 2px; }
+@media (max-width: 760px) { .wide { grid-template-columns: 1fr; } }
 .prints { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 16px; align-items: start; }
 .prints > figure { margin: 0; min-width: 0; background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
 .prints video, .prints img { width: 100%; background: #000; }
@@ -165,6 +171,7 @@ html { scroll-behavior: smooth; }
       <a href="#context">Context</a>
       <a href="#changes">What changed</a>
       <a href="#demister">Demister test</a>
+      <a href="#water">Water test</a>
       <a href="#prints">Latest prints</a>
       <a href="#build">Build &amp; materials</a>
       <a href="#wand">RFID wand</a>
@@ -185,7 +192,7 @@ html { scroll-behavior: smooth; }
     <div class="status">
       <span class="pill acc">Final test print in progress</span>
       <dl>
-        <dt>Latest</dt><dd>Lid with multi-language label printed, QR scans; clear tray printed</dd>
+        <dt>Latest</dt><dd>Water test passed on a live unit; lid label and clear tray printed</dd>
         <dt>Design</dt><dd>Formtech design team, Christchurch</dd>
         <dt>Files to Formtech</dt><dd>Tonight (3 Nov)</dd>
         <dt>Production candidates</dt><dd>ASA (FDM) and Nylon 12 (SLS)</dd>
@@ -235,8 +242,8 @@ html { scroll-behavior: smooth; }
         <div class="was"><b>Was:</b> lens fogged over warm, freshly incubated plates.</div>
       </div>
       <div>
-        <h3>Splash-proof shell</h3>
-        <p>Sealing is now good enough that a glass of water can be poured over the screen. Mini vents and a bevel on the back have been added.</p>
+        <h3>Splash-proof shell with drainage</h3>
+        <p>Sealing plus internal gutters that take water off the front screen and out of the shell. Proven with a bottle of water over a running unit (see <a href="#water">water test</a>). Mini vents and a bevel on the back have been added.</p>
         <div class="was"><b>Was:</b> open seams, hard to wipe down.</div>
       </div>
       <div>
@@ -282,6 +289,27 @@ html { scroll-behavior: smooth; }
       </figure>
     </div>
     <div class="note">With the fan on there is a very faint fog in the first moments that clears over time. Next revision adds a larger intake on the back with an opening flap, and the demister exit is being tuned for the best airflow across the lens.</div>
+  </section>
+
+  <section id="water">
+    <div class="sec-head">
+      <div class="eyebrow">Water test · 6 Nov</div>
+      <div>
+        <h2>A bottle of water over a live unit</h2>
+        <p>The assembled V2 was powered up, set on the ute deck and had a bottle of water poured over the lid and screen. Internal gutters carry the water off the front screen and out of the shell instead of into it. Back on the bench it booted straight up, screen and electronics 100%.</p>
+      </div>
+    </div>
+    <div class="wide">
+      <figure>
+        <video src="media/water-test.mp4" poster="media/poster-water.jpg" muted autoplay loop playsinline controls preload="metadata"></video>
+        <div class="lab"><strong>Pour test</strong>Water over the top and down the screen; it sheets off the visor and drains through the gutters rather than pooling on the display.</div>
+      </figure>
+      <figure>
+        <video src="media/after-water.mp4" poster="media/poster-after.jpg" muted autoplay loop playsinline controls preload="metadata"></video>
+        <div class="lab"><strong>After the test</strong>Dried off and powered up: screen test pattern comes up, no water inside, no faults.</div>
+      </figure>
+    </div>
+    <div class="note">This is the shed-floor scenario the unit has to survive: a hose or a splash from a wash-down while it sits on the bench. The seals, the tilted screen and the drainage path are all doing their job together.</div>
   </section>
 
   <section id="prints">
@@ -337,6 +365,17 @@ html { scroll-behavior: smooth; }
         </div>
         <p style="font-size:13px;color:var(--fg-2);margin-top:12px">Weights have some wiggle room: the solid sections on the sides are still to be hollowed out in CAD, which brings both material cost and print time down.</p>
       </div>
+    </div>
+    <div class="two" style="margin-top:28px">
+      <div>
+        <h3 style="font-size:17px;font-weight:700;font-stretch:87.5%;margin-bottom:10px">LED diffuser for even plate lighting</h3>
+        <p>Inside the lower shell, a white diffuser box surrounds the plate aperture. The LEDs sit behind its four walls rather than shining straight at the agar, so the plate is lit evenly from the sides with no hot spots or reflections in the camera image. The white disc under the aperture is the backlight diffuser the plate sits over.</p>
+        <p style="margin-top:10px">Lighting and the fan run off pluggable screw-terminal connectors, so the lower shell can be split from the electronics for cleaning or service without unsoldering anything.</p>
+      </div>
+      <figure class="fig">
+        <img src="media/diffuser-top.jpg" alt="Top-down view into the lower shell: white diffuser walls framing the circular plate aperture with the white backlight disc below">
+        <figcaption>Looking down into the lower shell: diffuser walls, plate aperture, backlight disc, and the RFID holder pocket at lower right.</figcaption>
+      </figure>
     </div>
     <div class="two" style="margin-top:28px">
       <figure class="fig">
@@ -409,6 +448,7 @@ html { scroll-behavior: smooth; }
       <li class="done"><span class="dot"></span><div><b>Final test print and file hand-over</b><small>Tray tuned for resin; files handed to Formtech 3 Nov.</small></div></li>
       <li class="done"><span class="dot"></span><div><b>Lid visor label, two-colour print</b><small>Extra languages added over the QR code, corners radiused; printed from Orca Slicer, QR scans (5 Nov).</small></div></li>
       <li class="done"><span class="dot"></span><div><b>Clear resin tray on the Form</b><small>High Temp clear, 2 h 32 m; printed, cleaned and cured, plate insert fits (5 Nov).</small></div></li>
+      <li class="done"><span class="dot"></span><div><b>Water test passed</b><small>Bottle of water over the live unit; gutters drain the screen, unit boots clean afterwards (6 Nov).</small></div></li>
       <li class="now"><span class="dot"></span><div><b>Finish tuning</b><small>0.2 mm nozzle for the label text, ironing on the lid top face.</small></div></li>
       <li><span class="dot"></span><div><b>Production sets in ASA and Nylon 12</b><small>Formtech prints one set of each and costs per unit.</small></div></li>
       <li><span class="dot"></span><div><b>DairySmart review and sign-off</b><small>Ben to check towards the end of this week.</small></div></li>
