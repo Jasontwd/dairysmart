@@ -171,13 +171,14 @@ html { scroll-behavior: smooth; }
   <div class="hero">
     <div>
       <img class="hero-logo" src="media/dairysmart-logo.png" alt="DairySmart">
-      <div class="eyebrow">Progress update · 3 November 2026</div>
+      <div class="eyebrow">Progress update · 6 November 2026</div>
       <h1>Jupiter Reader <em>V2</em></h1>
       <p class="lede">A tougher, splash-proof, fog-free rebuild of the DairySmart plate reader, now at final test print. Next in the queue: the telescopic RFID wand.</p>
     </div>
     <div class="status">
       <span class="pill acc">Final test print in progress</span>
       <dl>
+        <dt>Latest</dt><dd>Multi-language lid label printing; clear resin tray on the Form</dd>
         <dt>Design</dt><dd>Formtech design team, Christchurch</dd>
         <dt>Files to Formtech</dt><dd>Tonight (3 Nov)</dd>
         <dt>Production candidates</dt><dd>ASA (FDM) and Nylon 12 (SLS)</dd>
@@ -238,11 +239,19 @@ html { scroll-behavior: smooth; }
       </div>
       <div>
         <h3>Simpler assembly, standard screws</h3>
-        <p>Build order is screen, then camera, then shroud. Shroud screw holes were resized to take standard screws. A visual diagram is going on the lid tutorial so it works for non-English speakers.</p>
+        <p>Build order is screen, then camera, then shroud. Shroud screw holes were resized to take standard screws.</p>
+      </div>
+      <div>
+        <h3>Lid visor: QR code with multi-language label</h3>
+        <p>The lid carries a QR code to the operator tutorial, with a visual diagram and the label text now in several languages so it works for non-English-speaking staff. Printed as a two-colour part (blue on white) with radiused corners. The lettering resolves cleanly in Orca Slicer; Qidi Studio loses the fine detail, so Orca is the slicer for this part.</p>
       </div>
       <div>
         <h3>RFID chip holder</h3>
         <p>Dedicated holder on the right-hand side of the shell, so the reader can pick up the tag on each plate as part of the sample-to-result chain.</p>
+      </div>
+      <div>
+        <h3>Screen tilted toward the operator</h3>
+        <p>The display angle was changed and test-printed; it reads better standing at the bench and, as it turned out, makes assembly slightly easier because the screen drops in first.</p>
       </div>
     </div>
   </section>
@@ -288,7 +297,7 @@ html { scroll-behavior: smooth; }
           <tr><th>Route</th><th>Material</th><th>Why</th></tr>
           <tr><td>FDM</td><td class="mono">ASA</td><td>Stiffer than PETG (less frame flex), easy to clean, UV-stable for a shed.</td></tr>
           <tr><td>SLS</td><td class="mono">Nylon 12</td><td>No support marks, strong thin walls. A laser-sintering-specific version of the model is being prepared.</td></tr>
-          <tr><td>SLA</td><td class="mono">Clear resin</td><td>Tray only, so the plate and its RFID tag are visible without flexing the part.</td></tr>
+          <tr><td>SLA</td><td class="mono">High Temp clear resin</td><td>Tray only, so the plate and its RFID tag are visible without flexing the part. First tray is on the Form printer now.</td></tr>
         </table>
         </div>
         <div class="stats">
@@ -296,6 +305,20 @@ html { scroll-behavior: smooth; }
           <div class="stat"><div class="v num">398 g</div><div class="k">Lower shell, test print</div></div>
         </div>
         <p style="font-size:13px;color:var(--fg-2);margin-top:12px">Weights have some wiggle room: the solid sections on the sides are still to be hollowed out in CAD, which brings both material cost and print time down.</p>
+      </div>
+    </div>
+    <div class="two" style="margin-top:28px">
+      <figure class="fig">
+        <img src="media/tray-preform.jpg" alt="PreForm screenshot of the Jupiter tray angled on the build platform with supports, ready to print in High Temp clear resin">
+        <figcaption>Tray set up in PreForm, angled on supports. High Temp clear resin, 2 h 32 m print time. It prints well at this orientation, so no need to change the angle.</figcaption>
+      </figure>
+      <div>
+        <h3 style="font-size:17px;font-weight:700;font-stretch:87.5%;margin-bottom:10px">Resin tray: first print running</h3>
+        <p>Because the clips moved to the lower shell, the tray no longer flexes and can be printed on the Form in a clear resin. A 2 h 32 m print makes it cheap to iterate, and a clear tray keeps the plate and its RFID tag visible to the operator.</p>
+        <div class="stats">
+          <div class="stat"><div class="v num">2 h 32 m</div><div class="k">Tray print time (SLA)</div></div>
+          <div class="stat"><div class="v">High Temp</div><div class="k">Clear resin, Formlabs</div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -352,7 +375,9 @@ html { scroll-behavior: smooth; }
       <li class="done"><span class="dot"></span><div><b>V1 failure analysis</b><small>Screen breakages traced to glass-held mounting and PETG frame flex.</small></div></li>
       <li class="done"><span class="dot"></span><div><b>V2 CAD and first test prints</b><small>New screen mount, fan shroud, tray and clip redesign, RFID holder, splash sealing.</small></div></li>
       <li class="done"><span class="dot"></span><div><b>Demister proven</b><small>Fan on vs off over boiling water, lens stays clear.</small></div></li>
-      <li class="now"><span class="dot"></span><div><b>Final test print and file hand-over</b><small>Reprint running; tray tuned for resin; files to Formtech tonight.</small></div></li>
+      <li class="done"><span class="dot"></span><div><b>Final test print and file hand-over</b><small>Tray tuned for resin; files handed to Formtech 3 Nov.</small></div></li>
+      <li class="now"><span class="dot"></span><div><b>Lid visor label, two-colour print</b><small>Extra languages added over the QR code, corners radiused; printing blue/white from Orca Slicer (5–6 Nov).</small></div></li>
+      <li class="now"><span class="dot"></span><div><b>Clear resin tray on the Form</b><small>High Temp clear, 2 h 32 m, angled build with supports.</small></div></li>
       <li><span class="dot"></span><div><b>Production sets in ASA and Nylon 12</b><small>Formtech prints one set of each and costs per unit.</small></div></li>
       <li><span class="dot"></span><div><b>DairySmart review and sign-off</b><small>Ben to check towards the end of this week.</small></div></li>
       <li><span class="dot"></span><div><b>RFID wand</b><small>Carbon tube sourcing via Killwell, demo print, then handle and electronics.</small></div></li>
